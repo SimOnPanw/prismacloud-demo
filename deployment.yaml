@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: attacker-demo-1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pcc-demo
+  namespace: attacker-demo-1
+  labels:
+    app.kubernetes.io/name: pcc-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: pcc-demo
+  template:
+    metadata:
+      labels:
+        run: pcc-demo
+        app.kubernetes.io/name: pcc-demo
+      annotations:
+        io.kubernetes.pod.name: "pcc-demo"
+    spec:
+      containers:
+      - name: pcc-demo
+        image: ghcr.io/steven-deboer/pcc-demo:main
+        imagePullPolicy: Always
