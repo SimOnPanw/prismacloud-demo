@@ -30,7 +30,7 @@ After this is done, you can continously keep running the attacks while enabling 
 
 2. Start the container in your cluster. You can do this by running the following command:
 
-    ```kubectl run pcc-demo --image=ghcr.io/steven-deboer/pcc-demo:main --image-pull-policy=Always -n attacker-demo```
+    ```kubectl run pcc-demo --image=ghcr.io/simonpanw/prismacloud-demo:main --image-pull-policy=Always -n attacker-demo```
 
 3. Next, manually relearn the container runtime model in Prisma Cloud Compute. This step is necessary to create a baseline for normal behavior within the container. In a production environment, this step is fully automated.
 
